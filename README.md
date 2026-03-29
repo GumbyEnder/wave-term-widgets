@@ -1,4 +1,3 @@
-## Widgets included
 
 Core widgets:
 - Project Launcher — jump into common project directories and see git state
@@ -44,16 +43,28 @@ Windows PowerShell:
 .\scripts\install.ps1
 ```
 
+Windows batch:
+
+```bat
+scripts\install.bat
+```
+
 Or run the cross-platform deploy script directly:
 
 ```bash
 python3 scripts/deploy.py
 ```
 
-By default this writes to the first WaveTerm home it finds, usually one of:
+By default this writes to the first existing WaveTerm home it finds, usually one of:
 
 - `$HOME/.waveterm/config/widgets.json`
 - `$HOME/.config/waveterm/config/widgets.json`
+
+To target every likely home in one pass, use `--all-homes`:
+
+```bash
+python3 scripts/deploy.py --all-homes
+```
 
 If your WaveTerm home is different, set `WAVETERM_HOME` first or pass `--home`:
 
@@ -62,7 +73,16 @@ WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
 python3 scripts/deploy.py --home "$HOME/.config/waveterm"
 ```
 
-It also makes a timestamped backup of any existing `widgets.json` before replacing it.
+It makes a timestamped backup of any existing `widgets.json` before replacing it.
+
+Rollback / uninstall:
+
+```bash
+./scripts/rollback.sh
+.\scripts\rollback.ps1
+python3 scripts/deploy.py --rollback
+python3 scripts/deploy.py --remove
+```
 
 ## Generate the JSON manually
 
