@@ -1,39 +1,7 @@
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-BIN = ROOT / "bin"
+from widget_config import render_widgets_json
 
 
-def cmd(script: str) -> str:
-    return f"bash -lc '{(BIN / script).as_posix()}'"
-
-
-widgets = [
-    ("project-launcher", "folder-open", "Projects", "#7bd389", 10, "project-launcher.sh"),
-    ("system-panel", "server", "System", "#8ab4f8", 20, "system-panel.sh"),
-    ("git-panel", "code-branch", "Git", "#f6c177", 30, "git-panel.sh"),
-    ("todo-notes", "clipboard-list", "Todo", "#f38ba8", 40, "todo-notes.sh"),
-    ("media-controls", "music", "Media", "#cba6f7", 50, "media-controls.sh"),
-    ("services-panel", "diagram-project", "Services", "#94e2d5", 60, "services-panel.sh"),
-    ("quick-links", "link", "Links", "#fab387", 70, "quick-links.sh"),
-    ("clock", "clock", "Clock", "#89dceb", 80, "clock.sh"),
-    ("weather", "cloud-sun", "Weather", "#74c7ec", 90, "weather.sh"),
-    ("clipboard", "paste", "Clipboard", "#f9e2af", 100, "clipboard.sh"),
-    ("tailscale-status", "network-wired", "Tailscale", "#a6e3a1", 110, "tailscale.sh"),
-    ("ai-status", "robot", "AI", "#ffb86c", 120, "ai-status.sh"),
-]
-
-output = {}
-for name, icon, label, color, order, script in widgets:
-    output[name] = {
-        "icon": icon,
-        "label": label,
-        "color": color,
-        "display:order": order,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd(script)}},
-    }
-
-print(json.dumps(output, indent=2))
+if __name__ == "__main__":
+    print(render_widgets_json(), end="")

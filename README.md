@@ -1,4 +1,3 @@
-
 ## Widgets included
 
 Core widgets:
@@ -33,26 +32,37 @@ This repo keeps the widget command logic in `bin/` and provides a generator that
 
 From the repo root:
 
-```bash
-./scripts/install.sh
-```
-
-By default this writes to:
-
-`$HOME/.waveterm/config/widgets.json`
-
-If your WaveTerm home is different, set `WAVETERM_HOME` first:
-
-```bash
-WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
-```
-
-I usually wire both likely local config homes once, then keep the one WaveTerm actually reads:
+Linux/macOS:
 
 ```bash
 ./scripts/install.sh
-WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
 ```
+
+Windows PowerShell:
+
+```powershell
+.\scripts\install.ps1
+```
+
+Or run the cross-platform deploy script directly:
+
+```bash
+python3 scripts/deploy.py
+```
+
+By default this writes to the first WaveTerm home it finds, usually one of:
+
+- `$HOME/.waveterm/config/widgets.json`
+- `$HOME/.config/waveterm/config/widgets.json`
+
+If your WaveTerm home is different, set `WAVETERM_HOME` first or pass `--home`:
+
+```bash
+WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
+python3 scripts/deploy.py --home "$HOME/.config/waveterm"
+```
+
+It also makes a timestamped backup of any existing `widgets.json` before replacing it.
 
 ## Generate the JSON manually
 
