@@ -1,0 +1,61 @@
+
+A public starter pack of WaveTerm custom widgets for a daily terminal dashboard.
+
+## Widgets
+
+- Project Launcher — jump into common project directories and see git state
+- System Panel — CPU, RAM, disk, uptime, and top processes
+- Git Panel — current branch, status, and latest commit
+- Todo / Notes — quick scratchpad viewer for a local markdown todo file
+- Media Controls — now-playing summary for playerctl/mpc-compatible players
+- Services Panel — local listening services and Docker containers
+- Quick Links — fast access to the terminals, dashboards, and local tools you use most
+
+## How WaveTerm custom widgets work
+
+WaveTerm custom widgets are defined in:
+
+`<WAVETERM_HOME>/config/widgets.json`
+
+This repo keeps the widget command logic in `bin/` and provides a generator that renders a WaveTerm-ready `widgets.json` with absolute paths for your machine.
+
+## Install
+
+From the repo root:
+
+```bash
+./scripts/install.sh
+```
+
+By default this writes to:
+
+`$HOME/.waveterm/config/widgets.json`
+
+If your WaveTerm home is different, set `WAVETERM_HOME` first:
+
+```bash
+WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
+```
+
+## Generate the JSON manually
+
+```bash
+python3 scripts/render-widgets-json.py > /tmp/widgets.json
+```
+
+## Edit the widget list
+
+- `bin/project-launcher.sh`
+- `bin/system-panel.sh`
+- `bin/git-panel.sh`
+- `bin/todo-notes.sh`
+- `bin/media-controls.sh`
+- `bin/services-panel.sh`
+- `bin/quick-links.sh`
+
+## Notes
+
+- The scripts are dependency-light and should work on a plain Linux desktop.
+- `media-controls` uses `playerctl` first, then `mpc`.
+- `services-panel` shows listening ports and Docker containers when available.
+- `todo-notes` reads from `~/.local/share/wave-term-widgets/todo.md` by default.
