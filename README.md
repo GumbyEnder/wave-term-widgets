@@ -1,4 +1,3 @@
-
 A public starter pack of WaveTerm custom widgets for a daily terminal dashboard.
 
 ## Widgets included
@@ -85,3 +84,14 @@ python3 scripts/render-widgets-json.py > /tmp/widgets.json
 - `todo-notes` reads from `~/.local/share/wave-term-widgets/todo.md` by default.
 - `weather` uses `wttr.in` if available, with `Edmonton` as the default location.
 - `ai-status` checks the local LM Studio-compatible endpoint at `100.109.144.124:1234` by default.
+
+## Project status
+
+This repo is in a good stopping point for now. The current widget pack is published and installed locally, and we can return later to add more widgets or polish specific ones.
+
+Good next additions later:
+- Pomodoro / timer
+- Calendar / today agenda
+- Log tail widget
+- Network / VPN status
+- More interactive project and service launchers
