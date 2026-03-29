@@ -1,4 +1,5 @@
-set -euo pipefail
+
+source "$(dirname "$0")/lib.sh"
 
 roots=(
   "${WIDGET_PROJECT_ROOT:-$HOME/Agents/Projects}"
@@ -7,8 +8,7 @@ roots=(
   "/mnt/nas/agents"
 )
 
-printf 'PROJECT LAUNCHER\n'
-printf '%s\n' '----------------'
+widget_title "PROJECT LAUNCHER"
 
 count=0
 for root in "${roots[@]}"; do
@@ -22,12 +22,13 @@ for root in "${roots[@]}"; do
       [[ -n "$(git -C "$dir" status --porcelain 2>/dev/null)" ]] && dirty='*'
     fi
     if [[ -n "$branch" ]]; then
-      printf '- %s%s  [%s]  %s\n' "$name" "$dirty" "$branch" "$dir"
+      printf -- '- %s%s [%s]\n' "$name" "$dirty" "$branch"
     else
-      printf '- %s%s  %s\n' "$name" "$dirty" "$dir"
+      printf -- '- %s%s\n' "$name" "$dirty"
     fi
+    printf '  %s\n' "$dir"
     count=$((count + 1))
-    if [[ "$count" -ge 20 ]]; then
+    if [[ "$count" -ge 18 ]]; then
       break 2
     fi
   done < <(find "$root" -mindepth 1 -maxdepth 1 -type d -print0 2>/dev/null | sort -z)

@@ -1,8 +1,9 @@
 
 A public starter pack of WaveTerm custom widgets for a daily terminal dashboard.
 
-## Widgets
+## Widgets included
 
+Core widgets:
 - Project Launcher — jump into common project directories and see git state
 - System Panel — CPU, RAM, disk, uptime, and top processes
 - Git Panel — current branch, status, and latest commit
@@ -10,6 +11,17 @@ A public starter pack of WaveTerm custom widgets for a daily terminal dashboard.
 - Media Controls — now-playing summary for playerctl/mpc-compatible players
 - Services Panel — local listening services and Docker containers
 - Quick Links — fast access to the terminals, dashboards, and local tools you use most
+
+Popular add-ons:
+- Clock — quick time/date glance
+- Weather — one-line local weather
+- Clipboard — short clipboard preview
+- Tailscale — VPN / network status
+- AI Status — local LM Studio / OpenAI-compatible endpoint check
+
+## Preview
+
+![WaveTerm widget gallery](assets/widget-gallery.svg)
 
 ## How WaveTerm custom widgets work
 
@@ -37,6 +49,13 @@ If your WaveTerm home is different, set `WAVETERM_HOME` first:
 WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
 ```
 
+I usually wire both likely local config homes once, then keep the one WaveTerm actually reads:
+
+```bash
+./scripts/install.sh
+WAVETERM_HOME="$HOME/.config/waveterm" ./scripts/install.sh
+```
+
 ## Generate the JSON manually
 
 ```bash
@@ -52,6 +71,11 @@ python3 scripts/render-widgets-json.py > /tmp/widgets.json
 - `bin/media-controls.sh`
 - `bin/services-panel.sh`
 - `bin/quick-links.sh`
+- `bin/clock.sh`
+- `bin/weather.sh`
+- `bin/clipboard.sh`
+- `bin/tailscale.sh`
+- `bin/ai-status.sh`
 
 ## Notes
 
@@ -59,3 +83,5 @@ python3 scripts/render-widgets-json.py > /tmp/widgets.json
 - `media-controls` uses `playerctl` first, then `mpc`.
 - `services-panel` shows listening ports and Docker containers when available.
 - `todo-notes` reads from `~/.local/share/wave-term-widgets/todo.md` by default.
+- `weather` uses `wttr.in` if available, with `Edmonton` as the default location.
+- `ai-status` checks the local LM Studio-compatible endpoint at `100.109.144.124:1234` by default.

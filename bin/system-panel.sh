@@ -1,18 +1,19 @@
 set -euo pipefail
 
-printf 'SYSTEM PANEL\n'
-printf '%s\n' '------------'
-printf 'Host: %s\n' "$(hostname 2>/dev/null || echo unknown)"
-printf 'Uptime: %s\n' "$(uptime -p 2>/dev/null || echo unknown)"
-printf 'Load: %s\n' "$(awk '{print $1" "$2" "$3}' /proc/loadavg 2>/dev/null || echo unknown)"
+source "$(dirname "$0")/lib.sh"
 
-if command -v free >/dev/null 2>&1; then
-  printf '\nMemory:\n'
+widget_title "SYSTEM PANEL"
+kv Host "$(hostname 2>/dev/null || echo unknown)"
+kv Uptime "$(uptime -p 2>/dev/null || echo unknown)"
+kv Load "$(awk '{print $1" "$2" "$3}' /proc/loadavg 2>/dev/null || echo unknown)"
+
+if have free; then
+  widget_section "Memory"
   free -h | awk 'NR==1 || NR==2 || NR==3 {print "  " $0}'
 fi
 
-printf '\nDisk:\n'
+widget_section "Disk"
 df -h / 2>/dev/null | awk 'NR==1 || NR==2 {print "  " $0}'
 
-printf '\nTop CPU processes:\n'
+widget_section "Top CPU processes"
 ps -eo pid,comm,%cpu,%mem --sort=-%cpu 2>/dev/null | awk 'NR==1 {print "  " $0; next} NR<=6 {print "  " $0}'

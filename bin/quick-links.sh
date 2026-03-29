@@ -1,8 +1,8 @@
 set -euo pipefail
 
-printf 'QUICK LINKS\n'
-printf '%s\n' '-----------'
+source "$(dirname "$0")/lib.sh"
 
+widget_title "QUICK LINKS"
 cat <<'EOF'
 - WaveTerm docs: https://docs.waveterm.dev
 - WaveTerm GitHub: https://github.com/wavetermdev/waveterm

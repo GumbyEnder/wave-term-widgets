@@ -1,21 +1,20 @@
 set -euo pipefail
 
-printf 'MEDIA CONTROLS\n'
-printf '%s\n' '---------------'
+source "$(dirname "$0")/lib.sh"
 
-if command -v playerctl >/dev/null 2>&1; then
+widget_title "MEDIA CONTROLS"
+
+if have playerctl; then
   status="$(playerctl status 2>/dev/null || true)"
   title="$(playerctl metadata --format '{{artist}} - {{title}}' 2>/dev/null || true)"
-  if [[ -n "$status" || -n "$title" ]]; then
-    printf 'Backend: playerctl\n'
-    printf 'Status: %s\n' "${status:-unknown}"
-    printf 'Now playing: %s\n' "${title:-nothing active}"
-    exit 0
-  fi
+  kv Backend playerctl
+  kv Status "${status:-unknown}"
+  kv NowPlaying "${title:-nothing active}"
+  exit 0
 fi
 
-if command -v mpc >/dev/null 2>&1; then
-  printf 'Backend: mpc\n'
+if have mpc; then
+  kv Backend mpc
   mpc status 2>/dev/null | sed 's/^/  /'
   exit 0
 fi

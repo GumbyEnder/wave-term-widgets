@@ -1,0 +1,132 @@
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 34px sans-serif; fill: #f9fafb; }
+      .sub { font: 400 16px sans-serif; fill: #cbd5e1; }
+      .cardTitle { font: 700 18px sans-serif; fill: #f8fafc; }
+      .cardBody { font: 400 14px monospace; fill: #cbd5e1; }
+      .chip { font: 700 12px sans-serif; fill: #020617; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)" rx="24"/>
+  <text x="56" y="72" class="title">WaveTerm Widget Pack</text>
+  <text x="56" y="102" class="sub">Preview gallery for a compact local terminal dashboard.</text>
+
+  <g transform="translate(48 140)">
+    <g transform="translate(0 0)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="96" height="26" rx="13" fill="#7bd389"/>
+      <text x="30" y="36" class="chip">Projects</text>
+      <text x="18" y="72" class="cardTitle">Project Launcher</text>
+      <text x="18" y="100" class="cardBody">• repo1 [main] /mnt/nas/...</text>
+      <text x="18" y="122" class="cardBody">• repo2* [feature] /home/...</text>
+      <text x="18" y="144" class="cardBody">• repo3 [detached] /srv/...</text>
+    </g>
+    <g transform="translate(452 0)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="88" height="26" rx="13" fill="#8ab4f8"/>
+      <text x="30" y="36" class="chip">System</text>
+      <text x="18" y="72" class="cardTitle">System Panel</text>
+      <text x="18" y="100" class="cardBody">CPU 14%   RAM 22/31 GiB</text>
+      <text x="18" y="122" class="cardBody">Disk 61%  Load 0.62 0.48 0.33</text>
+      <text x="18" y="144" class="cardBody">Top: code • browser • node</text>
+    </g>
+    <g transform="translate(904 0)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="60" height="26" rx="13" fill="#f6c177"/>
+      <text x="30" y="36" class="chip">Git</text>
+      <text x="18" y="72" class="cardTitle">Git Panel</text>
+      <text x="18" y="100" class="cardBody">branch: main</text>
+      <text x="18" y="122" class="cardBody">latest: 6873827 Initial WaveTerm widget pack</text>
+      <text x="18" y="144" class="cardBody">status: clean</text>
+    </g>
+    <g transform="translate(0 196)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="82" height="26" rx="13" fill="#f38ba8"/>
+      <text x="30" y="36" class="chip">Todo</text>
+      <text x="18" y="72" class="cardTitle">Todo / Notes</text>
+      <text x="18" y="100" class="cardBody">[ ] Add your first widget note</text>
+      <text x="18" y="122" class="cardBody">[ ] Collect useful localhost URLs</text>
+      <text x="18" y="144" class="cardBody">[ ] Track things to do in WaveTerm</text>
+    </g>
+    <g transform="translate(452 196)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="82" height="26" rx="13" fill="#cba6f7"/>
+      <text x="30" y="36" class="chip">Media</text>
+      <text x="18" y="72" class="cardTitle">Media Controls</text>
+      <text x="18" y="100" class="cardBody">playerctl: playing</text>
+      <text x="18" y="122" class="cardBody">Now playing: Artist - Track</text>
+      <text x="18" y="144" class="cardBody">fallback: mpc</text>
+    </g>
+    <g transform="translate(904 196)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="100" height="26" rx="13" fill="#94e2d5"/>
+      <text x="30" y="36" class="chip">Services</text>
+      <text x="18" y="72" class="cardTitle">Services Panel</text>
+      <text x="18" y="100" class="cardBody">80 / 3000 / 5432 listening</text>
+      <text x="18" y="122" class="cardBody">docker: medusa • postgres • redis</text>
+      <text x="18" y="144" class="cardBody">health: good</text>
+    </g>
+    <g transform="translate(0 392)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="76" height="26" rx="13" fill="#89dceb"/>
+      <text x="30" y="36" class="chip">Clock</text>
+      <text x="18" y="72" class="cardTitle">Clock</text>
+      <text x="18" y="100" class="cardBody">Sun 19:09 MDT</text>
+      <text x="18" y="122" class="cardBody">Uptime: 1 week, 3 days</text>
+      <text x="18" y="144" class="cardBody">Timezone: America/Edmonton</text>
+    </g>
+    <g transform="translate(452 392)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="84" height="26" rx="13" fill="#74c7ec"/>
+      <text x="30" y="36" class="chip">Weather</text>
+      <text x="18" y="72" class="cardTitle">Weather</text>
+      <text x="18" y="100" class="cardBody">Edmonton: −2°C, overcast</text>
+      <text x="18" y="122" class="cardBody">Feels like −6°C • wind 13 km/h</text>
+      <text x="18" y="144" class="cardBody">wttr.in one-line summary</text>
+    </g>
+    <g transform="translate(904 392)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="92" height="26" rx="13" fill="#f9e2af"/>
+      <text x="30" y="36" class="chip">Clipboard</text>
+      <text x="18" y="72" class="cardTitle">Clipboard</text>
+      <text x="18" y="100" class="cardBody">preview: wave-term-widgets</text>
+      <text x="18" y="122" class="cardBody">chars: 48  source: wl-paste</text>
+      <text x="18" y="144" class="cardBody">safe short preview only</text>
+    </g>
+    <g transform="translate(0 588)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="100" height="26" rx="13" fill="#a6e3a1"/>
+      <text x="30" y="36" class="chip">Tailscale</text>
+      <text x="18" y="72" class="cardTitle">Tailscale Status</text>
+      <text x="18" y="100" class="cardBody">status: Running</text>
+      <text x="18" y="122" class="cardBody">ip: 100.109.144.124</text>
+      <text x="18" y="144" class="cardBody">peers: 7 online</text>
+    </g>
+    <g transform="translate(452 588)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="56" height="26" rx="13" fill="#ffb86c"/>
+      <text x="30" y="36" class="chip">AI</text>
+      <text x="18" y="72" class="cardTitle">AI Status</text>
+      <text x="18" y="100" class="cardBody">LM Studio reachable</text>
+      <text x="18" y="122" class="cardBody">models: qwen3.5-9b, llama-3.1-8b</text>
+      <text x="18" y="144" class="cardBody">endpoint: :1234/v1/models</text>
+    </g>
+    <g transform="translate(904 588)">
+      <rect width="412" height="164" rx="18" fill="url(#card)" stroke="#334155"/>
+      <rect x="18" y="18" width="78" height="26" rx="13" fill="#fab387"/>
+      <text x="30" y="36" class="chip">Links</text>
+      <text x="18" y="72" class="cardTitle">Quick Links</text>
+      <text x="18" y="100" class="cardBody">docs • wiki • NAS • dashboards</text>
+      <text x="18" y="122" class="cardBody">Medusa • Zeeva • Hermes</text>
+      <text x="18" y="144" class="cardBody">one-click local jumping-off point</text>
+    </g>
+  </g>
+</svg>

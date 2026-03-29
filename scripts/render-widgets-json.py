@@ -11,56 +11,29 @@ def cmd(script: str) -> str:
     return f"bash -lc '{(BIN / script).as_posix()}'"
 
 
-widgets = {
-    "project-launcher": {
-        "icon": "folder-open",
-        "label": "Projects",
-        "color": "#7bd389",
-        "display:order": 10,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("project-launcher.sh")}},
-    },
-    "system-panel": {
-        "icon": "server",
-        "label": "System",
-        "color": "#8ab4f8",
-        "display:order": 20,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("system-panel.sh")}},
-    },
-    "git-panel": {
-        "icon": "code-branch",
-        "label": "Git",
-        "color": "#f6c177",
-        "display:order": 30,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("git-panel.sh")}},
-    },
-    "todo-notes": {
-        "icon": "clipboard-list",
-        "label": "Todo",
-        "color": "#f38ba8",
-        "display:order": 40,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("todo-notes.sh")}},
-    },
-    "media-controls": {
-        "icon": "music",
-        "label": "Media",
-        "color": "#cba6f7",
-        "display:order": 50,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("media-controls.sh")}},
-    },
-    "services-panel": {
-        "icon": "diagram-project",
-        "label": "Services",
-        "color": "#94e2d5",
-        "display:order": 60,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("services-panel.sh")}},
-    },
-    "quick-links": {
-        "icon": "link",
-        "label": "Links",
-        "color": "#fab387",
-        "display:order": 70,
-        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd("quick-links.sh")}},
-    },
-}
+widgets = [
+    ("project-launcher", "folder-open", "Projects", "#7bd389", 10, "project-launcher.sh"),
+    ("system-panel", "server", "System", "#8ab4f8", 20, "system-panel.sh"),
+    ("git-panel", "code-branch", "Git", "#f6c177", 30, "git-panel.sh"),
+    ("todo-notes", "clipboard-list", "Todo", "#f38ba8", 40, "todo-notes.sh"),
+    ("media-controls", "music", "Media", "#cba6f7", 50, "media-controls.sh"),
+    ("services-panel", "diagram-project", "Services", "#94e2d5", 60, "services-panel.sh"),
+    ("quick-links", "link", "Links", "#fab387", 70, "quick-links.sh"),
+    ("clock", "clock", "Clock", "#89dceb", 80, "clock.sh"),
+    ("weather", "cloud-sun", "Weather", "#74c7ec", 90, "weather.sh"),
+    ("clipboard", "paste", "Clipboard", "#f9e2af", 100, "clipboard.sh"),
+    ("tailscale-status", "network-wired", "Tailscale", "#a6e3a1", 110, "tailscale.sh"),
+    ("ai-status", "robot", "AI", "#ffb86c", 120, "ai-status.sh"),
+]
 
-print(json.dumps(widgets, indent=2))
+output = {}
+for name, icon, label, color, order, script in widgets:
+    output[name] = {
+        "icon": icon,
+        "label": label,
+        "color": color,
+        "display:order": order,
+        "blockdef": {"meta": {"view": "term", "controller": "cmd", "cmd": cmd(script)}},
+    }
+
+print(json.dumps(output, indent=2))
